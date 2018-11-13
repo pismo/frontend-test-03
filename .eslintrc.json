@@ -1,0 +1,27 @@
+{
+    "extends": [
+        "standard",
+        "plugin:flowtype/recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+        "indent": ["error", 4]
+    },
+    "plugins": [
+        "flowtype",
+        "react"
+    ],
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        },
+        "react": {
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "version": "16.6",
+            "flowVersion": "0.85"
+        },
+        "propWrapperFunctions": [ "forbidExtraProps" ]
+    }
+}
