@@ -1,28 +1,18 @@
-<section id="home">
-  <div class="row">
-    <div class="col-12">
-      <div class="card border-info mb-3">
-        <div class="card-body text-info">
-          <h1 class="card-title">Bem vindo a Pismo Filmes</h1>
-          <p>Escolha seu filme por categoria</p>
-          <span *ngFor="let genre of genres">{{genre.name}}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Filmes Populares</h2>
-      <hr>
-      <div class="row">
-        <div class="col-md-6" *ngFor="let movie of popular">
-          <div class="card mb-2">
-            <div class="card-body">
-              <app-movie [movie]="movie"></app-movie>
-            </div>
+<h1 class="text-info">Bem vindo a Pismo Filmes</h1>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>Filmes Populares</h2>
+    <hr>
+    <ul class="row list-unstyled">
+      <li class="col-md-6 d-flex align-items-stretch" *ngFor="let movie of popular">
+        <div class="card mb-2">
+          <div class="card-body">
+            <app-movie [movie]="movie"></app-movie>
           </div>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
-</section>
+</div>

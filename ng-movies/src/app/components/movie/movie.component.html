@@ -1,6 +1,9 @@
 <div class="row" [@movieAppeared]="movieState">
-  <div class="col-md-4">
-    <img class="img-thumbnail" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title">
+  <div class="col-md-4 d-flex align-items-center">
+    <img 
+      [class]="movie.poster_path ? 'img-thumbnail' : 'img-fluid'"
+      [src]="movie.poster_path ? ('https://image.tmdb.org/t/p/w500' + movie.poster_path) : '../../../assets/images/not-found.png'" 
+      [alt]="movie.title">
   </div>
   <div class="col-md-8">
     <dl class="movie">
@@ -13,7 +16,7 @@
     </dl>
     <button 
       class="btn btn-sm btn-info"
-      [routerLink]="['/movies', movie.id]">
+      [routerLink]="['movie-detail', movie.id]">
      + informações
     </button>
   </div>

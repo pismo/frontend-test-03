@@ -1,0 +1,34 @@
+<section id="detalhes" [@detailAppeared]="detailState" *ngIf="detail">
+  <h1 class="text-info">{{ detail.title }}</h1>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <img class="img-thumbnail" [src]="'https://image.tmdb.org/t/p/w500' + detail.poster_path" [alt]="detail.title">
+    </div>
+    <div class="col-sm-8">
+      <dl class="movie">
+        <dt>Sinopse</dt>
+        <dd>{{ detail.overview }}</dd>
+        <dt>Média de Votos</dt>
+        <dd><span class="badge badge-pill badge-secondary voteAverage">{{ detail.vote_average * 10 }}%</span></dd>
+        <dt>Data do lançamento</dt>
+        <dd>{{ detail.release_date | date: 'longDate' }}</dd>
+        <dt>Gêneros</dt>
+        <dd>
+          <ul class="list-unstyled">
+            <li class="badge badge-pill badge-info mr-2 genres" *ngFor="let genre of detail.genres">
+              {{ genre.name }}
+            </li>
+          </ul>
+        </dd>
+        <dt>Orçamento</dt>
+        <dd>{{ detail.budget | currency: 'BRL': 'symbol' }}</dd>
+      </dl>
+      <button 
+        class="btn btn-sm btn-outline-info"
+        (click)="addFavorite(detail)">
+        Adicionar aos favoritos
+      </button>
+    </div>
+  </div>
+</section>

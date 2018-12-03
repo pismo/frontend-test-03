@@ -10,18 +10,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private movieService: MovieService) { }
 
-  genres: []
   popular: []
 
   ngOnInit() {
-    this.getGenres()
     this.getPopular()
-  }
-
-  getGenres(){
-    this.movieService.getGenres().subscribe(data => {
-      this.genres = data.genres;
-    });
   }
 
   getPopular(){

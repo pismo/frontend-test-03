@@ -9,7 +9,14 @@ export class FavoritesComponent implements OnInit {
 
   constructor() { }
 
+  favorits: any
+
   ngOnInit() {
+    this.favorits = JSON.parse(localStorage.getItem('favorits'))
+    if (!this.favorits) {
+      this.favorits = []
+    }
+    console.log('this.favorits', this.favorits);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http"
+import { HttpClient, HttpParams } from "@angular/common/http"
 import { environment } from '../../environments/environment'
 import { Observable } from 'rxjs';
 
@@ -10,10 +10,6 @@ export class MovieService {
 
     constructor(private http: HttpClient) { }
 
-    getGenres(): Observable<any> {
-        return this.http.get(`${this.url}/genre/movie/list`)
-    }
-
     getPopularMovie(): Observable<any> {
         return this.http.get(`${this.url}/movie/popular`)
     }
@@ -22,12 +18,10 @@ export class MovieService {
         return this.http.get(`${this.url}/movie/${movie_id}`)
     }
 
-    getSimilarMovies(movie_id): Observable<any> {
-        return this.http.get(`${this.url}/movie/${movie_id}/similar`)
-    }
-
-    searchMovie(): Observable<any> {
-        return this.http.get(`${this.url}/search/movie`)
+    searchMovies(query): Observable<any> {
+        let params = new HttpParams();
+        params = params.append('query', query);
+        return this.http.get(`${this.url}/search/movie`, {params: params})
     }
 
 }

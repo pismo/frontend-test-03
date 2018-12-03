@@ -15,13 +15,21 @@
         <a class="nav-link" [routerLink]="['favorites']">Favoritos</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form autocomplete="off" class="form-inline my-2 my-lg-0" [formGroup]="searchForm" novalidate>
       <input 
         aria-label="Pesquisar"
         class="form-control mr-sm-2"
+        formControlName="searchText"
+        id="searchText"
+        name="searchText"
         placeholder="Pesquisar"
         type="search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
+      <button 
+        class="btn btn-outline-info my-2 my-sm-0" 
+        (click)="search(searchForm.value)"
+        type="submit">
+        Pesquisar
+      </button>
     </form>
   </div>
 </nav>

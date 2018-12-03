@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  searchForm: FormGroup
+
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
+    this.initForm()
   }
+
+  initForm(){
+    this.searchForm = this.fb.group({
+      searchText: this.fb.control('', [Validators.required])
+    })
+  }
+
+  search(form){
+    let text = btoa(form.searchText)
+    this.router.navigate(['/search', text])
+  }
+  
 
 }
