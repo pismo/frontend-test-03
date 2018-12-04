@@ -18,9 +18,12 @@ export class MovieService {
         return this.http.get(`${this.url}/movie/${movie_id}`)
     }
 
-    searchMovies(query): Observable<any> {
+    searchMovies(query, page?): Observable<any> {
         let params = new HttpParams();
         params = params.append('query', query);
+        if (page) {
+            params = params.append('page', page);
+        }
         return this.http.get(`${this.url}/search/movie`, {params: params})
     }
 

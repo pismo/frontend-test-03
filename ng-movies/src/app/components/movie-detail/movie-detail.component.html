@@ -1,4 +1,4 @@
-<section id="detalhes" [@detailAppeared]="detailState" *ngIf="detail">
+<section class="mb-4" id="detalhes" [@detailAppeared]="detailState" *ngIf="detail">
   <h1 class="text-info">{{ detail.title }}</h1>
   <hr>
   <div class="row">
@@ -26,8 +26,15 @@
       </dl>
       <button 
         class="btn btn-sm btn-outline-info"
-        (click)="addFavorite(detail)">
+        (click)="addFavorite()"
+        *ngIf="!favorite">
         Adicionar aos favoritos
+      </button>
+      <button 
+        class="btn btn-sm btn-outline-info"
+        (click)="removeFavorite()"
+        *ngIf="favorite">
+        Remover dos favoritos
       </button>
     </div>
   </div>

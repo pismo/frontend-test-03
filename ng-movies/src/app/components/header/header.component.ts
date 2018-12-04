@@ -24,8 +24,10 @@ export class HeaderComponent implements OnInit {
   }
 
   search(form){
-    let text = btoa(form.searchText)
-    this.router.navigate(['/search', text])
+    if (form.searchText) {
+      let text = btoa(form.searchText)
+      this.router.navigate(['/search', text])  
+    }
   }
   
 

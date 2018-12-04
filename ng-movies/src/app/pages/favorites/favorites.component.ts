@@ -12,11 +12,10 @@ export class FavoritesComponent implements OnInit {
   favorits: any
 
   ngOnInit() {
-    this.favorits = JSON.parse(localStorage.getItem('favorits'))
+    this.favorits = JSON.parse(localStorage.getItem('favorites'))
     if (!this.favorits) {
       this.favorits = []
     }
-    console.log('this.favorits', this.favorits);
   }
 
 }

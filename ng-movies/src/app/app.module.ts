@@ -23,11 +23,12 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 //pages
 import { HomeComponent } from './pages/home/home.component';
+import { PopularDetailComponent } from './pages/home/popular-detail/popular-detail.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { FavoriteDetailComponent } from './pages/favorites/favorite-detail/favorite-detail.component';
 import { SearchComponent } from './pages/search/search.component';
 import { SearchDetailComponent } from './pages/search/search-detail/search-detail.component';
-import { PopularDetailComponent } from './pages/home/popular-detail/popular-detail.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 //services
 import { MovieService } from './services/movie.service';
@@ -51,6 +52,7 @@ import { ApplicationErrorHandler } from './app.error-handler';
     SearchComponent,
     SearchDetailComponent,
     PopularDetailComponent,
+    FavoriteDetailComponent,
   ],
   imports: [
     BrowserModule,
