@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,16 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private translate: TranslateService) {}
 
   popular: []
 
   ngOnInit() {
     this.getPopular()
+
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.getPopular()
+    });
   }
 
   getPopular(){

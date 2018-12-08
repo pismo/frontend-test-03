@@ -1,10 +1,10 @@
-<h1 class="text-info">Favoritos</h1>
+<h1 class="text-info">{{ 'favorites.title' | translate }}</h1>
 <hr>
 
 <div class="row">
   <div class="col-md-12">
-    <h2>Sua lista de favoritos</h2>
-    <p>você possui {{ favorits.length }} filmes em sua lista de favoritos.</p>
+    <h2>{{ 'favorites.subtitle' | translate }}</h2>
+    <p>{{ 'favorites.resultsPartOne' | translate }} {{ favorits.length }} {{ 'favorites.resultsPartTwo' | translate }}</p>
     <hr>
     <p *ngIf="favorits.length === 0">Nenhum item adicionado a lista de favoritos</p>
     <ul class="row list-unstyled">

@@ -7,17 +7,17 @@
   </div>
   <div class="col-md-8">
     <dl class="movie">
-      <dt>Título</dt>
+      <dt>{{ 'movie.title' | translate }}</dt>
       <dd>{{ movie.title }}</dd>
-      <dt>Data do lançamento</dt>
+      <dt>{{ 'movie.release' | translate }}</dt>
       <dd>{{ movie.release_date | date: 'longDate' }}</dd>
-      <dt>Visão geral</dt>
+      <dt>{{ 'movie.overview' | translate }}</dt>
       <dd [title]="movie.overview">{{ movie.overview | slice:0:100}} ...</dd>
     </dl>
     <button 
       class="btn btn-sm btn-info"
       [routerLink]="['movie-detail', movie.id]">
-     + informações
+     + {{ 'movie.info' | translate }}
     </button>
   </div>
 </div>

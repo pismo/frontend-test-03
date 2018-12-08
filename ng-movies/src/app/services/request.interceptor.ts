@@ -12,7 +12,7 @@ export class RequestInterceptor implements HttpInterceptor {
         const newRequest = request.clone({
             setParams: {
                 api_key: 'c2360daab1bea84a3e9ea4b1c8d51e8c',
-                language: 'pt-BR'
+                language: JSON.parse(localStorage.getItem('language')).value 
             }
         })
         return next.handle(newRequest)

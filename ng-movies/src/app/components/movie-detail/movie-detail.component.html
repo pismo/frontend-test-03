@@ -7,13 +7,13 @@
     </div>
     <div class="col-sm-8">
       <dl class="movie">
-        <dt>Sinopse</dt>
+        <dt>{{ 'movie.overview' | translate }}</dt>
         <dd>{{ detail.overview }}</dd>
-        <dt>Média de Votos</dt>
+        <dt>{{ 'movie.averageVote' | translate }}</dt>
         <dd><span class="badge badge-pill badge-secondary voteAverage">{{ detail.vote_average * 10 }}%</span></dd>
-        <dt>Data do lançamento</dt>
+        <dt>{{ 'movie.release' | translate }}</dt>
         <dd>{{ detail.release_date | date: 'longDate' }}</dd>
-        <dt>Gêneros</dt>
+        <dt>{{ 'movie.genres' | translate }}</dt>
         <dd>
           <ul class="list-unstyled">
             <li class="badge badge-pill badge-info mr-2 genres" *ngFor="let genre of detail.genres">
@@ -21,20 +21,20 @@
             </li>
           </ul>
         </dd>
-        <dt>Orçamento</dt>
+        <dt>{{ 'movie.budget' | translate }}</dt>
         <dd>{{ detail.budget | currency: 'BRL': 'symbol' }}</dd>
       </dl>
       <button 
         class="btn btn-sm btn-outline-info"
         (click)="addFavorite()"
         *ngIf="!favorite">
-        Adicionar aos favoritos
+        {{ 'movie.addFavorite' | translate }}
       </button>
       <button 
         class="btn btn-sm btn-outline-info"
         (click)="removeFavorite()"
         *ngIf="favorite">
-        Remover dos favoritos
+        {{ 'movie.removeFavorite' | translate }}
       </button>
     </div>
   </div>

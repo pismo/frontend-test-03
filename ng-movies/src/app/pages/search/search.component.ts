@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { MovieService } from 'src/app/services/movie.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +10,9 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
+  constructor(private movieService: MovieService, 
+              private route: ActivatedRoute,
+              private translate: TranslateService) { }
 
   text: string
   movies = []
@@ -20,6 +23,10 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(param => {
       this.text = atob(param.text)
+      this.searchMovies()
+    });
+
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.searchMovies()
     });
   }

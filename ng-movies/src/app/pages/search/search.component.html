@@ -1,10 +1,10 @@
-<h1 class="text-info">Busca</h1>
+<h1 class="text-info">{{ 'search.title' | translate }}</h1>
 <hr>
 
 <div class="row">
   <div class="col-md-12">
-    <h2>Resultados para '{{ text }}'</h2>
-    <p>{{ totalResults }} resultados encontrados.</p>
+    <h2>{{ 'search.subtitle' | translate }} '{{ text }}'</h2>
+    <p>{{ totalResults }} {{ 'search.results' | translate }}.</p>
     <hr>
     <ul class="row list-unstyled">
       <li class="col-md-6 d-flex align-items-stretch" *ngFor="let movie of movies">
@@ -24,7 +24,7 @@
       class="btn btn-outline-info text-center"
       (click)="loadMore()"
       *ngIf="movies.length < totalResults">
-      Carregar mais ...
+      {{ 'search.btnPlus' | translate }}
     </button>
   </div>
 </div>

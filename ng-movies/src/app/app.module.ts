@@ -1,7 +1,7 @@
 //angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler, LOCALE_ID } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,6 +9,15 @@ import { ROUTES } from './app.routes';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt'
 registerLocaleData(localePt, 'pt')
+
+//translate
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 //libs
 import { AngularSvgIconModule } from 'angular-svg-icon';
@@ -61,6 +70,13 @@ import { ApplicationErrorHandler } from './app.error-handler';
     ReactiveFormsModule,
     HttpClientModule,
     AngularSvgIconModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
