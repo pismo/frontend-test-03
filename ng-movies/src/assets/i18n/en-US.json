@@ -26,7 +26,9 @@
     "title": "Favorits",
     "subtitle": "Your favorites list",
     "resultsPartOne": "you have",
-    "resultsPartTwo": "movies on your favorits list."
+    "resultsPartTwo": "movies on your favorits list.",
+    "msgAdd": "Movie add to favorites",
+    "msgRemove": "Movie removed from favorites"
   },
   "search": {
     "title": "Search",

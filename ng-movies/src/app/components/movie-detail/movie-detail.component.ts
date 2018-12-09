@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations'
 import { NotificationService } from 'src/app/services/notification.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-movie-detail',
@@ -24,7 +25,7 @@ export class MovieDetailComponent implements OnInit {
 
   @Input() detail: any
 
-  constructor(private ns: NotificationService) { }
+  constructor(private ns: NotificationService, private translate: TranslateService) { }
 
   ngOnInit() {
   }
@@ -43,7 +44,7 @@ export class MovieDetailComponent implements OnInit {
     if (!this.isFavorite()) {
       this.favorites.push(this.detail);
       localStorage.setItem('favorites', JSON.stringify(this.favorites))
-      this.ns.notify(`Filme adicionado aos favoritos`)
+      this.ns.notify(`${this.translate.instant('favorites.msgAdd')}`)
       this.favorite = this.isFavorite()
     }
   }
@@ -52,7 +53,7 @@ export class MovieDetailComponent implements OnInit {
     let index = this.favorites.findIndex(f => f.id === this.detail.id)
     this.favorites.splice(index, 1)
     localStorage.setItem('favorites', JSON.stringify(this.favorites))
-    this.ns.notify(`Filme removido dos favoritos`)
+    this.ns.notify(`${this.translate.instant('favorites.msgRemove')}`)
     this.favorite = this.isFavorite()
   }
 
