@@ -1,0 +1,42 @@
+{
+  "header": {
+    "home": "Home",
+    "favorites": "Favorites",
+    "search": "Search"
+  },
+  "footer": {
+    "text": "Pismo Movies - developed by"
+  },
+  "movie": {
+    "title": "Title",
+    "release": "Release Date",
+    "overview" : "Overview",
+    "averageVote": "Average Vote",
+    "genres": "Genres",
+    "budget": "Budget",
+    "addFavorite": "Add to favorites",
+    "removeFavorite": "Remove from favorites",
+    "info": "information"
+  },
+  "home": {
+    "title": "Welcome to Pismo Movies",
+    "subtitle": "Popular Movies"
+  },
+  "favorites": {
+    "title": "Favorits",
+    "subtitle": "Your favorites list",
+    "resultsPartOne": "you have",
+    "resultsPartTwo": "movies on your favorits list.",
+    "msgAdd": "Movie add to favorites",
+    "msgRemove": "Movie removed from favorites"
+  },
+  "search": {
+    "title": "Search",
+    "subtitle": "Result for",
+    "results": "result found",
+    "btnPlus": "Load more ..."
+  },
+  "notFound": {
+    "text": "Page not found"
+  }
+}

@@ -1,0 +1,41 @@
+<section class="mb-4" id="detalhes" [@detailAppeared]="detailState" *ngIf="detail">
+  <h1 class="text-info">{{ detail.title }}</h1>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <img class="img-thumbnail" [src]="'https://image.tmdb.org/t/p/w500' + detail.poster_path" [alt]="detail.title">
+    </div>
+    <div class="col-sm-8">
+      <dl class="movie">
+        <dt>{{ 'movie.overview' | translate }}</dt>
+        <dd>{{ detail.overview }}</dd>
+        <dt>{{ 'movie.averageVote' | translate }}</dt>
+        <dd><span class="badge badge-pill badge-secondary voteAverage">{{ detail.vote_average * 10 }}%</span></dd>
+        <dt>{{ 'movie.release' | translate }}</dt>
+        <dd>{{ detail.release_date | date: 'longDate' }}</dd>
+        <dt>{{ 'movie.genres' | translate }}</dt>
+        <dd>
+          <ul class="list-unstyled">
+            <li class="badge badge-pill badge-info mr-2 genres" *ngFor="let genre of detail.genres">
+              {{ genre.name }}
+            </li>
+          </ul>
+        </dd>
+        <dt>{{ 'movie.budget' | translate }}</dt>
+        <dd>{{ detail.budget | currency: 'BRL': 'symbol' }}</dd>
+      </dl>
+      <button 
+        class="btn btn-sm btn-outline-info"
+        (click)="addFavorite()"
+        *ngIf="!favorite">
+        {{ 'movie.addFavorite' | translate }}
+      </button>
+      <button 
+        class="btn btn-sm btn-outline-info"
+        (click)="removeFavorite()"
+        *ngIf="favorite">
+        {{ 'movie.removeFavorite' | translate }}
+      </button>
+    </div>
+  </div>
+</section>

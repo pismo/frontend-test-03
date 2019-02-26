@@ -1,0 +1,23 @@
+<div class="row" [@movieAppeared]="movieState">
+  <div class="col-md-4 d-flex align-items-center">
+    <img 
+      [class]="movie.poster_path ? 'img-thumbnail' : 'img-fluid'"
+      [src]="movie.poster_path ? ('https://image.tmdb.org/t/p/w500' + movie.poster_path) : '../../../assets/images/not-found.png'" 
+      [alt]="movie.title">
+  </div>
+  <div class="col-md-8">
+    <dl class="movie">
+      <dt>{{ 'movie.title' | translate }}</dt>
+      <dd>{{ movie.title }}</dd>
+      <dt>{{ 'movie.release' | translate }}</dt>
+      <dd>{{ movie.release_date | date: 'longDate' }}</dd>
+      <dt>{{ 'movie.overview' | translate }}</dt>
+      <dd [title]="movie.overview">{{ movie.overview | slice:0:100}} ...</dd>
+    </dl>
+    <button 
+      class="btn btn-sm btn-info"
+      [routerLink]="['movie-detail', movie.id]">
+     + {{ 'movie.info' | translate }}
+    </button>
+  </div>
+</div>

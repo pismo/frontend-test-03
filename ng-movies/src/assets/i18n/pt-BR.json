@@ -1,0 +1,42 @@
+{
+  "header": {
+    "home": "Inicio",
+    "favorites": "Favoritos",
+    "search": "Pesquisar"
+  },
+  "footer": {
+    "text": "Pismo Filmes - desenvolvido por"
+  },
+  "movie": {
+    "title": "Título",
+    "release": "Data do Lançamento",
+    "overview" : "Visão Geral",
+    "averageVote": "Média de Votos",
+    "genres": "Gêneros",
+    "budget": "Orçamento",
+    "addFavorite": "Adicionar aos favoritos",
+    "removeFavorite": "Remover dos favoritos",
+    "info": "informações"
+  },
+  "home": {
+    "title": "Bem vindo a Pismo Filmes",
+    "subtitle": "Filmes Populares"
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "subtitle": "Sua lista de favoritos",
+    "resultsPartOne": "você possui",
+    "resultsPartTwo": "filmes em sua lista de favoritos.",
+    "msgAdd": "Filme adicionado aos favoritos",
+    "msgRemove": "Filme removido dos favoritos"
+  },
+  "search": {
+    "title": "Busca",
+    "subtitle": "Resultado para",
+    "results": "resultados encontrados",
+    "btnPlus": "Carregar mais ..."
+  },
+  "notFound": {
+    "text": "Página não encontrada"
+  }
+}

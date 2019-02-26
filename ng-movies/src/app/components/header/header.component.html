@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['/']">
+    <svg-icon src="../../assets/images/logo.svg" [svgStyle]="{ 'fill' : '#fff', 'width.px':35 }"></svg-icon>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item px-2" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['']">{{ 'header.home' | translate }}</a>
+      </li>
+      <li class="nav-item px-2" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['favorites']">{{ 'header.favorites' | translate }}</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a 
+          aria-expanded="false"
+          aria-haspopup="true" 
+          class="nav-link dropdown-toggle cursor-pointer" 
+          data-toggle="dropdown" 
+          id="navbarDropdown" 
+          role="button" >
+          <svg-icon [src]="'../../assets/images/' + language.icon" [svgStyle]="{ 'width.px':25 }"></svg-icon>
+          {{ language.description }}
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <a 
+            class="dropdown-item cursor-pointer" 
+            (click)="setLanguage(lang)"
+            *ngFor="let lang of languages">
+             <svg-icon [src]="'../../assets/images/' + lang.icon" [svgStyle]="{ 'width.px':25 }"></svg-icon>
+             <span class="ml-2">{{ lang.description }}</span>
+           </a>
+         </div>
+      </li>
+    </ul>
+    <form autocomplete="off" class="form-inline my-2 my-lg-0" [formGroup]="searchForm" novalidate>
+      <input 
+        aria-label="Pesquisar"
+        class="form-control mr-sm-2"
+        formControlName="searchText"
+        id="searchText"
+        name="searchText"
+        placeholder="{{ 'header.search' | translate }}"
+        type="search">
+      <button 
+        class="btn btn-outline-info my-2 my-sm-0" 
+        (click)="search(searchForm.value)"
+        type="submit">
+        {{ 'header.search' | translate }}
+      </button>
+    </form>
+  </div>
+</nav>
